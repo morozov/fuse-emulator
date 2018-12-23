@@ -369,18 +369,6 @@ do_joystick( const input_event_joystick_t *joystick_event, int press )
     if( press ) ui_widget_keyhandler( joystick_event->button );
     return 0;
   }
-
-#ifndef GEKKO /* Home button opens the menu on Wii */
-  switch( joystick_event->button ) {
-  case INPUT_JOYSTICK_FIRE_2:
-    if( press ) ui_popup_menu( INPUT_KEY_F1 );
-    break;
-
-  default: break;		/* Remove gcc warning */
-
-  }
-#endif  /* #ifndef GEKKO */
-
 #endif				/* #ifdef USE_WIDGET */
 
   which = joystick_event->which;
